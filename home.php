@@ -4,6 +4,40 @@
     itemtype="http://schema.org/WebPage"
 >
   <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#">
+    <style>
+
+.chooser {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #ddd}
+
+.chooser:hover .dropdown-content {
+    display: block;
+}
+
+.chooser:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+</style>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -153,26 +187,32 @@
             <a href="/pro/register.html" alt="Special Offers" class="button ">
               REGISTER
             </a>
-      
-      
-      
+            <?php
+            session_start();
+            if ($_SESSION['loggedin'] == true)
+            {
+              echo "Hello ".$_SESSION['username'];
+              echo '<form action="/pro/login.php">';
+              echo '<input type="submit" name="logout" value="logout">';
+              echo '</form>';
+            }
+            else{
+              echo "To play the games, please Login first........";
+            }
+            ?>
       
       
         </section>
       </header>
       <header class="main">
         <nav>
-          <!--<a class="home" href="/"></a>-->
-      
-          
-      
-          <ul class="categories">
-          	 <li><a href="/pro/home.html" class=" current">Home</a></li>
-            <li><a href="/pro/Games" >Games</a></li>
-            <li><a href="/pro/Scores" >Scores</a></li>
-            <li><a href="/pro/Leaderboards" >Leaderboards</a></li>
-            <!-- <li><a href="/swag" >Swag</a></li> -->
+            <ul class="categories">
+          	 <li><a href="/pro/home.php" class=" current">Home</a></li>
+            <li><a href="/pro/games.php" >Games</a></li>
+            <li><a href="/pro/user.php" >User</a></li>
+            <li><a href="/pro/leaderboards.php" >Leaderboards</a></li>
           </ul>
+
         </nav>
       </header>
 
@@ -861,14 +901,27 @@ Randomized with seed 285
   <p class="caption workspaces visible">Enjoy the free flow car game </p>
   <p class="caption windows">Experience the rush of a duel while having only one weapon...An ARROW</p>
   <p class="caption keyboard">Experience the alien invasion while fighting to save the earth.</p>
-
+<div class="ankan" align="center">
   <aside class="chooser">
-    <button class="workspaces active" onclick="playVideo('workflow', 'workspaces')">Virtual BAJA</button>
-    <button class="windows" onclick="playVideo('workflow', 'windows')">Archery</button>
-    <button class="keyboard" onclick="playVideo('workflow', 'keyboard')">Space Invaders</button>
+    <button class="dropbtn" onclick="playVideo('workflow', 'workspaces')">Virtual BAJA</button>
+     <div class="dropdown-content">
+        <a href="/pro/space.html">PLAY</a>
+      </div>
+      </aside>
+      <aside class="chooser">
+    <button class="dropbtn" onclick="playVideo('workflow', 'windows')">Archery</button>
+    <div class="dropdown-content">
+        <a href="/pro/space.html">PLAY</a>
+      </div>
+      </aside>
+      <aside class="chooser">
+    <button class="dropbtn" onclick="playVideo('workflow', 'keyboard')">COSMIC WARFARE</button>
+    <div class="dropdown-content">
+        <a href="/pro/space.html">PLAY</a>
+      </div>
   </aside>
+</div>
 </section>
-
 <section class="content imagine intelligent">
   <h2>Imagine</h2>
   <h3>a record of your gameplay performance</h3>
