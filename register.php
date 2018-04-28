@@ -31,7 +31,8 @@ if ($result->num_rows > 0)
         }
         else
         {
-        	$sql = "insert into user_data (Name,Email_address,Password,Active) values ('$nameid','$email','$pass','0');";
+            $dates=date("Y-m-d");
+        	$sql = "insert into user_data (Name,Email_address,Password,Date) values ('$nameid','$email','$pass','$dates');";
 			if ($conn->query($sql) === TRUE)
 			{
 				header('Location:/pro/home.php');

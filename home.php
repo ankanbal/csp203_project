@@ -209,7 +209,17 @@
             <ul class="categories">
           	 <li><a href="/pro/home.php" class=" current">Home</a></li>
             <li><a href="/pro/games.php" >Games</a></li>
-            <li><a href="/pro/user.php" >User</a></li>
+            <?php
+            session_start();
+            if ($_SESSION['loggedin'] == true)
+            {
+              echo '<li><a href="/pro/user.php" >User</a></li>';
+            }
+            else{
+              echo "please Login first........";
+            }
+            ?>
+            
             <li><a href="/pro/leaderboards.php" >Leaderboards</a></li>
           </ul>
 
@@ -904,21 +914,55 @@ Randomized with seed 285
 <div class="ankan" align="center">
   <aside class="chooser">
     <button class="dropbtn" onclick="playVideo('workflow', 'workspaces')">Virtual BAJA</button>
-     <div class="dropdown-content">
-        <a href="/pro/space.html">PLAY</a>
-      </div>
+    <?php
+            session_start();
+            if ($_SESSION['loggedin'] == true)
+            {
+              echo '<div class="dropdown-content">';
+              echo '<a href="/pro/space.html">PLAY</a>';
+              echo '</div>';
+            }
+            else{
+              echo '<div class="dropdown-content">';
+              echo '<a href="/pro/login.php">login first</a>';
+              echo '</div>';
+            }
+            ?>
+     
       </aside>
       <aside class="chooser">
     <button class="dropbtn" onclick="playVideo('workflow', 'windows')">Archery</button>
-    <div class="dropdown-content">
-        <a href="/pro/space.html">PLAY</a>
-      </div>
+    <?php
+            session_start();
+            if ($_SESSION['loggedin'] == true)
+            {
+              echo '<div class="dropdown-content">';
+              echo '<a href="https://arrowparas.herokuapp.com/">PLAY</a>';
+              echo '</div>';
+            }
+            else{
+              echo '<div class="dropdown-content">';
+              echo '<a href="/pro/login.php">login first</a>';
+              echo '</div>';
+            }
+            ?>
       </aside>
       <aside class="chooser">
     <button class="dropbtn" onclick="playVideo('workflow', 'keyboard')">COSMIC WARFARE</button>
-    <div class="dropdown-content">
-        <a href="/pro/space.html">PLAY</a>
-      </div>
+    <?php
+            session_start();
+            if ($_SESSION['loggedin'] == true)
+            {
+              echo '<div class="dropdown-content">';
+              echo '<a href="/pro/space.html">PLAY</a>';
+              echo '</div>';
+            }
+            else{
+              echo '<div class="dropdown-content">';
+              echo '<a href="/pro/login.php">login first</a>';
+              echo '</div>';
+            }
+            ?>
   </aside>
 </div>
 </section>
@@ -1017,7 +1061,7 @@ Randomized with seed 285
             <li><a href="/about">About Us</a></li>
           </ul>
           <ul class="social">
-            <li><a href="https://facebook.com/system76/" title="Facebook"><i class="fa fa-facebook"></i> Facebook</a></li>
+            <li><a href="https://www.facebook.com/Aviato-597092267302269/" title="Facebook"><i class="fa fa-facebook"></i> Facebook</a></li>
             <li><a href="https://github.com/system76" title="GitHub"><i class="fa fa-github"></i> GitHub</a></li>
             <li><a href="https://plus.google.com/u/0/104919222657565747428" title="Google+"><i class="fa fa-google-plus"></i> Google+</a></li>
           </ul>

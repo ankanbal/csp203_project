@@ -20,9 +20,12 @@ if (isset($_POST['login']))
 
     $query = $connection->query("select * from user_data where Password='$password' and Name='$username'");
     $rows = mysqli_num_rows($query);
+    $rows2=$query->fetch_assoc();
     if ($rows == 1) 
     {
         $_SESSION['username']=$username;
+        $_SESSION['emails']=$rows2['Email_address'];
+        $_SESSION['dates']=$rows2['Date'];
         $_SESSION['loggedin'] = true;
         header("location: /pro/home.php");
         exit();
