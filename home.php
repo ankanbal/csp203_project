@@ -208,7 +208,7 @@
         <nav>
             <ul class="categories">
           	 <li><a href="/pro/home.php" class=" current">Home</a></li>
-            <li><a href="/pro/games.php" >Games</a></li>
+            <li><a href="http://192.168.10.103:8080" target="_blank">Chat</a></li>
             <?php
             session_start();
             if ($_SESSION['loggedin'] == true)
@@ -848,12 +848,12 @@ Randomized with seed 285
         preload="preload"
       >
         <source
-        src="Kritika_The_White_Knights_Blood_Demon_Official_Trailer_2_720p.mp4"
+        src="car.mp4"
         type="video/mp4"
 
         />
         <source
-        src="Kritika_The_White_Knights_Blood_Demon_Official_Trailer_2_720p.mp4"
+        src="car.mp4"
         type="video/mp4"
         />
         <img
@@ -871,11 +871,11 @@ Randomized with seed 285
         preload="preload"
       >
         <source
-        src="Kritika_The_White_Knights_Official_Trailer_720p.mp4"
+        src="archery.mp4"
         type="video/mp4"
         />
         <source
-        src="Kritika_The_White_Knights_Official_Trailer_720p.mp4"
+        src="archery.mp4"
         type="video/mp4"
         />
         <img
@@ -893,11 +893,11 @@ Randomized with seed 285
         preload="preload"
       >
         <source
-        src="Kritika The White Knights Valkyrie Official Trailer.mp4"
+        src="space.mp4"
         type="video/mp4"
         />
         <source
-        src="Kritika The White Knights Valkyrie Official Trailer.mp4"
+        src="space.mp4"
         type="video/mp4"
         />
         <img
@@ -919,7 +919,7 @@ Randomized with seed 285
             if ($_SESSION['loggedin'] == true)
             {
               echo '<div class="dropdown-content">';
-              echo '<a href="/pro/space.html">PLAY</a>';
+              echo '<a href="/pro/car.php">PLAY</a>';
               echo '</div>';
             }
             else{
@@ -931,13 +931,13 @@ Randomized with seed 285
      
       </aside>
       <aside class="chooser">
-    <button class="dropbtn" onclick="playVideo('workflow', 'windows')">Archery</button>
+    <button class="dropbtn" onclick="playVideo('workflow', 'windows')">Yuudh 2D</button>
     <?php
             session_start();
             if ($_SESSION['loggedin'] == true)
             {
               echo '<div class="dropdown-content">';
-              echo '<a href="https://arrowparas.herokuapp.com/">PLAY</a>';
+              echo '<a href="/pro/start.php">Play</a>';
               echo '</div>';
             }
             else{
@@ -954,8 +954,9 @@ Randomized with seed 285
             if ($_SESSION['loggedin'] == true)
             {
               echo '<div class="dropdown-content">';
-              echo '<a href="/pro/space.html">PLAY</a>';
+              echo '<a href="/pro/space.php">Play</a>';
               echo '</div>';
+              
             }
             else{
               echo '<div class="dropdown-content">';
@@ -963,7 +964,7 @@ Randomized with seed 285
               echo '</div>';
             }
             ?>
-  </aside>
+      </aside>
 </div>
 </section>
 <section class="content imagine intelligent">

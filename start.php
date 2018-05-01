@@ -2,6 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8″>
+  <link rel="stylesheet" type="text/css" media="all" href="https://d1vhcvzji58n1j.cloudfront.net/assets/app-v2.min-03e6a0769e.css">
   <title>Yuudh-2D</title>
       <link rel = "shortcut icon" sizes = "256x256" href = "icon.jpg" />
         <style type = "text/css">
@@ -10,7 +11,7 @@
                 margin: 0;
             }
             body{
-                background-image: url('http://192.168.10.103/pro/arrowparas-master/assets/bowMan.gif');
+                background-image: url('arrowparas-master/assets/bowMan.gif');
                 background-position: top;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -42,6 +43,7 @@
               background-image: -webkit-linear-gradient(bottom, #FB1886 0%, #B30D5D 100%);
               background-image:         linear-gradient(to bottom, #FB1886 0%, #B30D5D 100%);
               border-radius: 5px;
+              text-align: center;
           }
           .button:hover {
               background-color: #B30D5D;
@@ -63,33 +65,40 @@
         <br><br>
         <h1>Yuudh-2D</h1>
         <ul>
-          <li><a href="http://192.168.10.103/pro/home.php" class="button play">Back to Home</a></li>
+          <li><?php
+            session_start();
+              $myfile = fopen("arrowparas-master/assets/getsssion.php", "r") or die("Unable to open file!");
+              $myfile2 = fopen("arrowparas-master/assets/getsssion2.php", "r") or die("Unable to open file!");
+              if($_SESSION['username']==fgets($myfile)){
+              echo '<a href="http://192.168.10.103:8081/" alt="Special Offers" class="button ">
+              PLAY
+            </a>';
+              }
+              else if($_SESSION['username']==fgets($myfile2)){
+                echo '<a href="http://192.168.10.103:8081/part1" alt="Special Offers" class="button ">
+              PLAY
+            </a>';
+               
+              }
+              fclose($myfile);
+              fclose($myfile2);
+            ?></li>
         </ul>
       </div>
     </div>
   </div>
+  <section class="content">
+            <a href="/pro/scores_space.php" alt="Special Offers" class="button ">
+              SCORES
+            </a>
+        </section>
+         <section class="content">
+            <a href="/pro/home.php" alt="Special Offers" class="button ">
+              EXIT
+            </a>
+        </section>
  <audio autoplay loop>
-      <source src="http://192.168.10.103/pro/arrowparas-master/assets/music.mp3">
-  </audio>
-  <?php
-$servername = "localhost";
-$username = "root";
-$password = "Aranya@1998";
-$database="Gamers";
-
-$conn = new mysqli($servername, $username, $password,$database);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-$my_file = 'arrowparas-master/test.txt';
-$myfile=fopen($my_file,'r');
-$string=fgets($myfile);
-$stt=explode(" ", $string);
-
-    echo '<h2 style="text-align: center;">You lose</h2>';
-    echo '<h1 style="text-align: center;">Try better next time.....</h1>';
-
-?> 
+      <source src="arrowparas-master/assets/music.mp3">
+  </audio> 
 </body>
 </html>

@@ -22,7 +22,59 @@ if (isset($_POST['login']))
     $rows = mysqli_num_rows($query);
     $rows2=$query->fetch_assoc();
     if ($rows == 1) 
-    {
+    { 
+        $my_file = 'arrowparas-master/assets/getsssion.php';
+        $header=file_get_contents($my_file);
+        if(strlen($header)==0) 
+        {
+            
+            $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
+            $data = $username;
+            fwrite($handle, $data);
+        }
+        else
+        {
+            $my_file2 = 'arrowparas-master/assets/getsssion2.php';
+            $handle2 = fopen($my_file2, 'w') or die('Cannot open file:  '.$my_file2);
+            $data2 = $username;
+            fwrite($handle2, $data2);
+        }
+        fclose($my_file);
+        fclose($my_file2);
+        $my_file = 'nitinfinal/assets/getsssion.php';
+        $header=file_get_contents($my_file);
+        if(strlen($header)==0) 
+        {
+            
+            $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
+            $data = $username;
+            fwrite($handle, $data);
+        }
+        else
+        {
+            $my_file2 = 'nitinfinal/assets/getsssion2.php';
+            $handle2 = fopen($my_file2, 'w') or die('Cannot open file:  '.$my_file2);
+            $data2 = $username;
+            fwrite($handle2, $data2);
+        }
+        fclose($my_file);
+        fclose($my_file2);
+        $my_file = 'Online-Gaming-Portal-master/vehicle-terrain-master/asset/getsssion.php';
+        $header=file_get_contents($my_file);
+        if(strlen($header)==0) 
+        {
+            
+            $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file);
+            $data = $username;
+            fwrite($handle, $data);
+        }
+        else
+        {
+            $my_file2 = 'Online-Gaming-Portal-master/vehicle-terrain-master/asset/getsssion2.php';
+            $handle2 = fopen($my_file2, 'w') or die('Cannot open file:  '.$my_file2);
+            $data2 = $username;
+            fwrite($handle2, $data2);
+        }
         $_SESSION['username']=$username;
         $_SESSION['emails']=$rows2['Email_address'];
         $_SESSION['dates']=$rows2['Date'];
@@ -37,6 +89,30 @@ if (isset($_POST['login']))
 }
 if(isset($_GET['logout']))
 {
+        $my_file = fopen('arrowparas-master/assets/getsssion.php',"r");
+        $my_file2 = fopen('arrowparas-master/assets/getsssion2.php',"r");
+        $str=fgets($my_file);
+        $str2=fgets($my_file2);
+        fclose($my_file);
+        fclose($my_file2);
+        if($_SESSION['username']==$str)
+        {
+            $fh = fopen('arrowparas-master/assets/getsssion.php','w'); // Open and truncate the file
+            fclose($fh);
+            $fh = fopen('nitinfinal/assets/getsssion.php','w'); // Open and truncate the file
+            fclose($fh);
+            $fh = fopen('Online-Gaming-Portal-master/vehicle-terrain-master/asset/getsssion.php','w'); // Open and truncate the file
+            fclose($fh);
+        }   
+        else
+        {
+            $fh1= fopen('arrowparas-master/assets/getsssion2.php','w'); // Open and truncate the file
+            fclose($fh1);
+            $fh1 = fopen('nitinfinal/assets/getsssion2.php','w'); // Open and truncate the file
+            fclose($fh1);
+             $fh1 = fopen('Online-Gaming-Portal-master/vehicle-terrain-master/asset/getsssion2.php','w'); // Open and truncate the file
+            fclose($fh);
+        }
     session_destroy();
     $_SESSION['loggedin'] = false;
 }

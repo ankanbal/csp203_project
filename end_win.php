@@ -10,7 +10,7 @@
                 margin: 0;
             }
             body{
-                background-image: url('http://10.20.0.135/pro/arrowparas-master/assets/bowMan.gif');
+                background-image: url('http://192.168.10.103/pro/arrowparas-master/assets/bowMan.gif');
                 background-position: top;
                 background-repeat: no-repeat;
                 background-size: cover;
@@ -63,13 +63,13 @@
         <br><br>
         <h1>Yuudh-2D</h1>
         <ul>
-          <li><a href="http://10.20.0.135/pro/home.php" class="button play">Back to Home</a></li>
+          <li><a href="http://192.168.10.103/pro/home.php" class="button play">Back to Home</a></li>
         </ul>
       </div>
     </div>
   </div>
  <audio autoplay loop>
-      <source src="http://10.20.0.135/pro/arrowparas-master/assets/music.mp3">
+      <source src="http://192.168.10.103/pro/arrowparas-master/assets/music.mp3">
   </audio> 
   <?php
 $servername = "localhost";
